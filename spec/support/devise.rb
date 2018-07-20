@@ -8,7 +8,7 @@ module DeviseExtensions
   end
   
   def create_user!(attributes={})
-    user = FactoryGirl.create(:user, attributes)
+    user = FactoryBot.create(:user, attributes)
     user
   end
 

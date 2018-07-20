@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :chapter do
     title "Ruby on Rails, the framework"
   end
