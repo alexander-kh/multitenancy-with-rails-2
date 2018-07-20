@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.0'
 
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.0.7'
 gem 'pg'
 
-gem 'devise', '4.1.1'
+gem 'devise', '4.4.3'
 gem 'sidekiq', '4.1.2'
 gem 'redcarpet'
 gem 'nokogiri'
@@ -16,7 +16,7 @@ gem 'redis-activesupport', '5.0.1'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'factory_girl'
+  gem 'factory_bot'
   gem 'capybara', '~> 2.0'
   gem 'rspec-rails', '~> 3.5.0'
   gem 'launchy'
