@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :element do
     tag "para"
     content "Hello world!"
