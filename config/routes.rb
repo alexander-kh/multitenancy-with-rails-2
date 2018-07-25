@@ -36,6 +36,15 @@ Twist::Application.routes.draw do
       
         resources :notes, &notes_routes
       end
+      
+      resources :invitations, only: [:new, :create] do
+        member do
+          get :accept
+          patch :accepted
+        end
+      end
+      
+      resources :users, only: [:index, :destroy]
     end
   end
   
