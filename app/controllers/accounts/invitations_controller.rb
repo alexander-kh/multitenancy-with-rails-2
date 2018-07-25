@@ -47,12 +47,6 @@ module Accounts
     def invitation_params
       params.require(:invitation).permit(:email)
     end
-    
-    def authorize_owner!
-      unless owner?
-        flash[:alert] = "Only an owner of an account can do that."
-        redirect_to root_url(subdomain: current_account.subdomain)
-      end
-    end
+
   end
 end
