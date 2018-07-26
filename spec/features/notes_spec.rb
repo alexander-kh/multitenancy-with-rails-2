@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "notes" do
   let(:account) { FactoryBot.create(:account) }
-  let(:book) { create_book! }
+  let(:book) { create_book!(account) }
   before do
     login_as(account.owner)
     set_subdomain(account.subdomain)
