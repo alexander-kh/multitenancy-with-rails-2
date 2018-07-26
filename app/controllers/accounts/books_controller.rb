@@ -4,7 +4,7 @@ module Accounts
     skip_before_action :authorize_user!, only: [:receive]
 
     def index
-      @books = Book.where(hidden: false)
+      @books = current_account.books
     end
 
     def new
@@ -12,7 +12,7 @@ module Accounts
     end
   
     def create
-      @book = Book.new(book_params)
+      @book = current_account.books.build(book_params)
       if @book.save
         @book.enqueue
         flash[:notice] = "#{@book.title} has been enqueued for processing."
@@ -24,10 +24,14 @@ module Accounts
     end
   
     def show
-      @book = Book.find_by_permalink(params[:id])
+      @book = current_account.books.find_by!(permalink: params[:id])
       @frontmatter = @book.chapters.frontmatter
       @mainmatter = @book.chapters.mainmatter
       @backmatter = @book.chapters.backmatter
+      
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Book not found."
+      redirect_to root_url
     end
 
     def receive
