@@ -1,8 +1,9 @@
 class Book < ActiveRecord::Base
+  before_create :set_permalink
 
   has_many :chapters
   has_many :notes, through: :chapters
-  before_create :set_permalink
+  belongs_to :account
 
   def self.find_by_permalink(permalink)
     find_by(permalink: permalink, hidden: false)
