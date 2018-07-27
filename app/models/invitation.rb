@@ -1,6 +1,4 @@
 class Invitation < ApplicationRecord
-  belongs_to :account
-  
   before_create :generate_token
   
   validates :email, presence: true

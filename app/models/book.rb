@@ -3,7 +3,6 @@ class Book < ActiveRecord::Base
 
   has_many :chapters
   has_many :notes, through: :chapters
-  belongs_to :account
 
   def self.find_by_permalink(permalink)
     find_by(permalink: permalink, hidden: false)

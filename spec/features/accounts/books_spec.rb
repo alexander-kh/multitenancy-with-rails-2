@@ -1,12 +1,17 @@
 require "rails_helper"
 
 feature "Books" do
-  let!(:account_a) { FactoryBot.create(:account) }
-  let!(:account_b) { FactoryBot.create(:account) }
+  let!(:account_a) { FactoryBot.create(:account, :with_schema) }
+  let!(:account_b) { FactoryBot.create(:account, :with_schema) }
   
   before do
-    FactoryBot.create(:book, title: "Account A's Book", account: account_a)
-    FactoryBot.create(:book, title: "Account B's Book", account: account_b)
+    Apartment::Tenant.switch(account_a.subdomain) do
+      Book.create(title: "Account A's Book")
+    end
+    
+    Apartment::Tenant.switch(account_b.subdomain) do
+      Book.create(title: "Account B's Book")
+    end
   end
   
   context "index" do
@@ -35,13 +40,19 @@ feature "Books" do
       end
       
       it "can see Account A's book" do
-        book = account_a.books.first
+        book = nil
+        Apartment::Tenant.switch(account_a.subdomain) do
+          book = Book.first
+        end
         visit book_url(book)
         expect(page).to have_content(book.title)
       end
       
       it "cannot see Account B's book" do
-        book = account_b.books.first
+        book = nil
+        Apartment::Tenant.switch(account_b.subdomain) do
+          book = Book.first
+        end
         visit book_url(book)
         expect(page).to have_content("Book not found.")
         expect(page.current_url).to eq(root_url)

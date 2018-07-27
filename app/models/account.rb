@@ -4,8 +4,10 @@ class Account < ApplicationRecord
   
   validates :subdomain, presence: true, uniqueness: true
   
-  has_many :invitations
   has_many :memberships
   has_many :users, through: :memberships
-  has_many :books
+  
+  def create_schema
+    Apartment::Tenant.create(subdomain)
+  end
 end
