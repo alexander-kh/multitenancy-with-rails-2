@@ -49,6 +49,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    braintree (2.90.0)
+      builder (>= 2.0.0)
     builder (3.2.3)
     capistrano (3.11.0)
       airbrussh (>= 1.0.0)
@@ -264,6 +266,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  braintree
   capistrano (~> 3.0)
   capistrano-bundler (= 1.1.4)
   capistrano-chruby
