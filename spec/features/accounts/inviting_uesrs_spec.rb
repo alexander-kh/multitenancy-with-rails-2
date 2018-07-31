@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Inviting users" do
-  let(:account) { FactoryBot.create(:account) }
+  let(:account) { FactoryBot.create(:account, :subscribed) }
   
   before do
     set_subdomain(account.subdomain)

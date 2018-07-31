@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Users" do
-  let(:account) { FactoryBot.create(:account) }
+  let(:account) { FactoryBot.create(:account, :subscribed) }
   let(:user) { FactoryBot.create(:user) }
   
   before do

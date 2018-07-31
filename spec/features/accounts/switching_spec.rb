@@ -2,14 +2,14 @@ require "rails_helper"
 
 describe "Switching accounts" do
   let(:account_1) do
-    FactoryBot.create(:account,
+    FactoryBot.create(:account, :subscribed,
       name: "Account #1",
       subdomain: "account1"
     )
   end
   
   let(:account_2) do
-    FactoryBot.create(:account,
+    FactoryBot.create(:account, :subscribed,
       name: "Account #2",
       subdomain: "account2"
     )

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Adding books" do
-  let(:account) { FactoryBot.create(:account) }
+  let(:account) { FactoryBot.create(:account, :subscribed) }
   
   context "as the acccount's owner" do
     before do
