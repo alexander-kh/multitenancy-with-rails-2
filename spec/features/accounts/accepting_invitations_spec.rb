@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Accepting invitations" do
-  let(:account) { FactoryBot.create(:account) }
+  let(:account) { FactoryBot.create(:account, :subscribed) }
   let(:invitation) do
     Invitation.create(
       account: account,
