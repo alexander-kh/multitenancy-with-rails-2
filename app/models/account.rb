@@ -13,4 +13,8 @@ class Account < ApplicationRecord
   def subscribed?
     braintree_subscription_id.present?
   end
+  
+  def over_limit_for?(plan)
+    books.count > plan.books_allowed
+  end
 end
