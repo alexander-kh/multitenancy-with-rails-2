@@ -10,6 +10,8 @@ class Account < ApplicationRecord
   has_many :books
   belongs_to :plan
   
+  has_many :subscription_events
+  
   def subscribed?
     braintree_subscription_id.present?
   end

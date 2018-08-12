@@ -18,6 +18,9 @@ Twist::Application.routes.draw do
         to: "plans#switch",
         as: :switch_plan
       
+      get "/billing", to: "billing#details"
+      post "/billing", to: "billing#update_details"
+      
       notes_routes = lambda do
         collection do
           get :completed
@@ -64,4 +67,6 @@ Twist::Application.routes.draw do
   post "/accounts", to: "accounts#create", as: :accounts
   
   get 'signed_out', to: "users#signed_out"
+  
+  post "braintree/incoming", to: "braintree_webhooks#incoming"
 end
