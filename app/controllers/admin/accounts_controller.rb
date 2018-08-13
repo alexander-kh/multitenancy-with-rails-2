@@ -8,4 +8,8 @@ class Admin::AccountsController < Admin::BaseController
   def show
     @account = Account.find(params[:id])
   end
+  
+  def past_due
+    @accounts = Account.where(braintree_subscription_status: "Past Due")
+  end
 end
