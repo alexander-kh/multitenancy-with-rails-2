@@ -46,3 +46,4 @@ gem 'pry'
 gem 'dotenv-rails'
 
 gem 'stripe'
+gem 'money'
