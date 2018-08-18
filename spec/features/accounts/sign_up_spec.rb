@@ -44,7 +44,7 @@ feature "Accounts" do
       
       csc_input = find("#cc-csc").native
       csc_input.send_keys("424")
-      click_button "submitButton", visible: false
+      find_button("submitButton", visible: false).trigger(:click)
     end
     
     within(".flash_notice") do
@@ -54,6 +54,7 @@ feature "Accounts" do
     
     account.reload
     expect(account.plan).to eq(plan)
+    expect(account.stripe_subscription_id).to be_present
     
     expect(page).to have_content("Signed in as test@example.com")
     expect(page.current_url).to eq(root_url(subdomain: "test"))
