@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'commenting' do 
-  let!(:account) { FactoryBot.create(:account) }
+  let!(:account) { FactoryBot.create(:account, :subscribed) }
   let!(:reviewer) { create_user! }
   let!(:book) { create_book!(account) }
   let!(:chapter) { book.chapters.first }

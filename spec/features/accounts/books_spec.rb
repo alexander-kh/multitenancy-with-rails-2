@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Books" do
-  let!(:account_a) { FactoryBot.create(:account) }
-  let!(:account_b) { FactoryBot.create(:account) }
+  let!(:account_a) { FactoryBot.create(:account, :subscribed) }
+  let!(:account_b) { FactoryBot.create(:account, :subscribed) }
   
   before do
     FactoryBot.create(:book, title: "Account A's Book", account: account_a)
