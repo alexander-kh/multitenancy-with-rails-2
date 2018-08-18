@@ -10,4 +10,8 @@ class Account < ApplicationRecord
   has_many :books
   
   belongs_to :plan
+  
+  def subscribed?
+    stripe_subscription_id.present?
+  end
 end
