@@ -2,6 +2,7 @@ module Accounts
   class BooksController < Accounts::BaseController
     skip_before_action :verify_authenticity_token, only: :receive
     skip_before_action :authorize_user!, only: [:receive]
+    before_action :check_plan_limit, only: [:new, :create]
 
     def index
       @books = current_account.books
@@ -42,6 +43,18 @@ module Accounts
 
     def book_params
       params.require(:book).permit(:title, :path, :blurb)
+    end
+    
+    private
+    
+    def check_plan_limit
+      if current_account.plan.books_allowed == current_account.books.count
+        session[:return_to] = request.fullpath
+        message = "You have reached your plan's limit."
+        message += " You need to upgrade your plan to add more books."
+        flash[:alert] = message
+        redirect_to account_choose_plan_path
+      end
     end
   end
 end
