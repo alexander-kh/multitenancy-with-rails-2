@@ -73,6 +73,7 @@ Twist::Application.routes.draw do
     resources :accounts, only: [:index, :show] do
       collection do
         post :search
+        get :unpaid
       end
     end
   end
