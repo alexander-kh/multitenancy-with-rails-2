@@ -66,4 +66,14 @@ Twist::Application.routes.draw do
   get 'signed_out', to: "users#signed_out"
   
   post "/stripe/webhook", to: "stripe_webhooks#receive"
+  
+  namespace :admin do
+    root to: "accounts#index"
+    
+    resources :accounts, only: [:index, :show] do
+      collection do
+        post :search
+      end
+    end
+  end
 end
