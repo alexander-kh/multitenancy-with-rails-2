@@ -16,6 +16,8 @@ Each chapter's code is in a corresponding branch, including alternative solution
 
 - [Chapter 5: Subscriptions with Braintree](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_5_subscriptions_with_braintree)
 
+- [Chapter 6: Subscriptions with Stripe](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_6_subscriptions_with_stripe)
+
 ---
 
 Twist provides an easy book-reviewing platform for authors using the LeanPub Markdown format. Twist will update your book *as soon as you push it to GitHub*. It's super easy!
