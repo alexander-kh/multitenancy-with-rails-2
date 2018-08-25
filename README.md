@@ -1,5 +1,23 @@
 # Twist 
 
+Built by the book ["Multitenancy with Rails" (2nd edition)](https://leanpub.com/multi-tenancy-rails-2) by [Ryan Bigg](https://ryanbigg.com).
+
+Each chapter's code is in a corresponding branch, including alternative solutions:
+
+- [Chapter 2: Laying the foundations](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_2)
+
+- [Chapter 3: Inviting users](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_3)
+
+- Chapter 4: Applying account scoping
+
+  * [Scoping by a database field](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_4_scoping_by_a_database_field)
+  
+  * [Using Postgres](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_4_scoping_using_schemas)
+
+- [Chapter 5: Subscriptions with Braintree](https://github.com/alexander-kh/multitenancy-with-rails-2/tree/alex_chapter_5_subscriptions_with_braintree)
+
+---
+
 Twist provides an easy book-reviewing platform for authors using the LeanPub Markdown format. Twist will update your book *as soon as you push it to GitHub*. It's super easy!
 
 ![Preview](https://raw.githubusercontent.com/radar/twist/master/doc/preview-new.png)

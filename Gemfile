@@ -32,7 +32,9 @@ group :development do
   gem 'capistrano-chruby'
 end
 
-gem "unicorn"
+group :production do
+  gem "unicorn"
+end
 
 # Asset template engines
 gem 'sass-rails', "~> 5.0.6"
